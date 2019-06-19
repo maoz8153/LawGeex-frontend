@@ -1,0 +1,37 @@
+.single-movie {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 500px;
+  }
+
+  .details {
+    .title {
+      font-size: 26px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .year {
+      color: rgba(255, 255, 255, 0.7);
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .genre {
+      color: rgba(255, 255, 255, 0.5);
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .director {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: none;
+    }
+  }
+
+}

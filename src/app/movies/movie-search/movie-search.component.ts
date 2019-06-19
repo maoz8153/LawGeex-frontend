@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IMovieQuary } from 'src/app/core/models/movie.quary.model';
 import { ImdbSearchService } from '../imdb-search.service';
 import { MovieSearchResult } from 'src/app/core/models/movie.search.result.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie-search',
@@ -11,7 +12,7 @@ import { MovieSearchResult } from 'src/app/core/models/movie.search.result.model
 export class MovieSearchComponent implements OnInit {
 
   moviesResult: MovieSearchResult[] = [];
-  constructor(private imdbSearchService: ImdbSearchService) { }
+  constructor(private imdbSearchService: ImdbSearchService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,10 @@ export class MovieSearchComponent implements OnInit {
         this.moviesResult = response;
       },
         (err: any) => console.log(err));
+  }
+
+  onCardClick(movieId: string) {
+    this.router.navigate([movieId], { relativeTo: this.route });
   }
 
 }

@@ -28,6 +28,14 @@ export class ImdbSearchService {
       );
   }
 
+  getMovieById(id: string): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/movies/${id}`)
+      .pipe(
+        tap(data => console.log(JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
 
   private handleError(err) {
     // in a real world app, we may send the server to some remote logging infrastructure
