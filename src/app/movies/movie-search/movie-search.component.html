@@ -5,3 +5,12 @@
     </div>
   </div>
 </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="movies-result" *ngFor="let movie of moviesResult; let index = index">
+      <app-movie-card [movieSearchResult]="movie"></app-movie-card>
+      <div class="w-100" *ngIf="(index + 1) % 4 == 0"></div>
+    </div>
+  </div>
+</div>

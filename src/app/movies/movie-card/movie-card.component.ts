@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MovieSearchResult } from 'src/app/core/models/movie.search.result.model';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
+  @Input() movieSearchResult: MovieSearchResult;
   constructor() { }
 
   ngOnInit() {

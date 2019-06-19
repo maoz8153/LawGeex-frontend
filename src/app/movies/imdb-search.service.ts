@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { IMovieQuary } from '../core/models/movie.quary.model';
+import { MovieSearchResult } from '../core/models/movie.search.result.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ImdbSearchService {
 
   constructor(private http: HttpClient) { }
 
-  searchMovies(quary: IMovieQuary): Observable<any[]> {
+  searchMovies(quary: IMovieQuary): Observable<MovieSearchResult[]> {
     return this.http.get<any[]>(`${this.apiUrl}/movies`, {
       params: {
         title: quary.title,

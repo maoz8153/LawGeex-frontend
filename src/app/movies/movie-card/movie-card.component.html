@@ -1,1 +1,7 @@
-
+  <div class="movie">
+    <img [src]="movieSearchResult.poster" class="img-responsive img-thumbnail undraggable"
+      onError="this.src='assets/images/default-poster.jpg';">
+    <div class="overlay"></div>
+    <div class="name">{{movieSearchResult.name}}</div>
+    <div class="year">{{movieSearchResult.year}}</div>
+  </div>
