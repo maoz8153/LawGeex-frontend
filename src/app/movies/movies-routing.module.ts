@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+import { MovieCardComponent } from './movie-search/movie-card/movie-card.component';
 
 const routes: Routes = [
   { path: '', component: MovieSearchComponent },
