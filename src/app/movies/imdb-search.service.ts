@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
+import { IMovieQuary } from '../core/models/movie.quary.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,13 @@ export class ImdbSearchService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/movies`)
+  searchMovies(quary: IMovieQuary): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/movies`, {
+      params: {
+        title: quary.title,
+        year: quary.year.toString()
+      }
+    })
       .pipe(
         tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError)

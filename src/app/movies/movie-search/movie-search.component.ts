@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IMovieQuary } from 'src/app/core/models/movie.quary.model';
+import { ImdbSearchService } from '../imdb-search.service';
 
 @Component({
   selector: 'app-movie-search',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieSearchComponent implements OnInit {
 
-  constructor() { }
+  moviesResult: any;
+  constructor(private imdbSearchService: ImdbSearchService) { }
 
   ngOnInit() {
+  }
+
+  onSearchMoviesAction(quary: IMovieQuary) {
+    this.imdbSearchService.searchMovies(quary)
+      .subscribe((response: any) => {
+        this.moviesResult = response;
+      },
+        (err: any) => console.log(err));
   }
 
 }

@@ -1,6 +1,6 @@
-<form [formGroup]="movieSearchForm">
-  <input [formControlName]="title" class="span5" type="text" placeholder="title">
-  <input [formControlName]="year" class="span5" type="text" placeholder="year">
+<form [formGroup]="movieSearchForm" class="form-inline">
+  <input formControlName="title" class="span5" type="text" placeholder="title">
+  <input formControlName="year" class="span5" type="text" placeholder="year">
   <button class="btn btn-primary" (click)="searchMoviesAction()">
     <i class="icon-search icon-white"></i>
   </button>
