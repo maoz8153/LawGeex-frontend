@@ -3,7 +3,8 @@
         <div class="col-sm-12">
           <div class="single-movie">
             <div class="col-sm-6">
-              <img id="poster" [src]="movieInfo.poster" class="img-responsive img-thumbnail center-block undraggable"
+              <img *ngIf="movieInfo" id="poster" [src]="movieInfo.poster"
+                class="img-responsive img-thumbnail center-block undraggable"
                 onError="this.src='assets/images/default-poster.jpg';">
             </div>
             <div class="col-sm-6">

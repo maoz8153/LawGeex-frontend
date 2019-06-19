@@ -12,8 +12,7 @@ import { IMovieInfo } from 'src/app/core/models/movie.info.model';
 export class MovieInfoComponent implements OnInit {
 
   public movieInfo: IMovieInfo;
-  public moviePropDisplay = ['title', 'genres', 'languages', 'country', 'votes', 'rating',
-    'runtime', 'year', 'metascore', 'plot', 'rated', 'director', 'writer', 'actors', 'name'];
+  public moviePropDisplay = [];
   constructor(private imdbSearchService: ImdbSearchService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -21,6 +20,8 @@ export class MovieInfoComponent implements OnInit {
     this.imdbSearchService.getMovieById(id)
       .subscribe((response: any) => {
         this.movieInfo = response;
+        this.moviePropDisplay = ['title', 'genres', 'languages', 'country', 'votes', 'rating',
+          'runtime', 'year', 'metascore', 'plot', 'rated', 'director', 'writer', 'actors', 'name'];
       },
         (err: any) => console.log(err));
   }
